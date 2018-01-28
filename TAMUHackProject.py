@@ -1,5 +1,6 @@
 from flask import Flask
-Import Key
+import KeyWords
+import Sentiment
 
 app = Flask(__name__)
 
