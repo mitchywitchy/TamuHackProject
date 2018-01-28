@@ -9,20 +9,25 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=News+Cycle');
 
 body{
-    text-align: center;
-}
+    text-align: justify; text-align-last: center; margin-left:242px; margin-right:242px;}
+
 h1{
     font-family: 'Anton', sans-serif;
     font-weight: normal;
     color: #212729;
-    font-size: 2.5em;
+    font-size: 3.0em;
+}
+h2{
+    font-family: 'News Cycle', sans-serif;
+    font-weight: normal;
+    color: #1298c5;
+    font-size: 1.5em;
 }
 
 * {box-sizing: border-box;}
-
-body {margin:0;font-family:Arial;}
 
 .topnav {
   overflow: hidden;
@@ -136,10 +141,26 @@ body {margin:0;font-family:Arial;}
 
 <div class="block1">
 <h1>Trending @HELP</h1>
-  </p>
+    <p>
+
+    <h2>Trending @HELP is a live-streaming website that helps first responders prioritize recent distress tweets
+    after a disaster from most to least panicked using Microsoft's Cognitive Services Text Analytics API.
+
+    <p>
+    Trending @HELP was inspired by reading <a href="https://www.texasmonthly.com/the-daily-post/how-social-media-managers-responded-to-hurricane-harvey/">a Texas Monthly article about first responders' use of social media during Hurricane Harvey</a>
+    First responders during Harvey received an overwhelming amount of social media messages and had to manually determine which ones could save lives.
+    Our website helps automate that process, acting like an "Emergency Room" for Tweets.
+    </p>
+    </h2>
+
+
 </div>
 
 <div id="wrap">
+    <h1>
+        Search for a hashtag here:
+
+    </h1>
 <form id="nav-search" class="form-search" action="/" method="post">
   <input id="search-query" class="search-input" type="text" value='{{ search }}' name="text"/>
   <button type="submit" class="icon"></button>
