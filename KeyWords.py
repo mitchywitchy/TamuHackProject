@@ -28,4 +28,4 @@ documents = { 'documents': [
 print 'Please wait a moment for the results to appear.\n'
 
 result = GetKeyPhrases (documents)
-print (json.dumps(json.loads(result), indent=4))
+print (json.loads(result))
