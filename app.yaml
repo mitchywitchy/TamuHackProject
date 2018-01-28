@@ -1,9 +1,6 @@
-runtime: python36
-api_version: 1
-threadsafe: true
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT TAMUHackProject:app
 
-handlers:
-- url: /
-  static_dir: static
-- url: /.*
-  script: TAMUHackProject.app
+runtime_config:
+          python_version: 3
