@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 import requests
 from urllib import parse
 from requests_oauthlib import OAuth1
@@ -44,11 +44,13 @@ def get_sentiment(tweets):
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def hello_world():
+@app.route('/', methods=['POST','GET'])
+def show_tweets():
+    print(request.form)
+    search = request.form.get('text','#disastermichelle')
+    print (search)
     response = requests.get(
-        'https://api.twitter.com/1.1/search/tweets.json?q=%23disastermichelle&result_type=recent&count=20',
+        'https://api.twitter.com/1.1/search/tweets.json?q=' + parse.quote(search) + '&result_type=recent&count=20',
         auth=OAuth1(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET))
     dict = response.json()
     tweets = []
@@ -68,13 +70,14 @@ def hello_world():
     html_embed = []
     for s in sorted_tweets:
         response1 = requests.get(
-            'https://publish.twitter.com/oembed?url=' + parse.quote_plus(s['url']),
+            'https://publish.twitter.com/oembed?align=center&url=' + parse.quote_plus(s['url']),
             auth=OAuth1(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET))
         dict1 = response1.json()
         html_embed.append(dict1['html'])
     # print (html_embed)
     # return '\n'.join(html_embed)
-    return render_template('webpage.html',tweets=html_embed)
+    return render_template('webpage.html',tweets=html_embed,search=search)
+
 
 if __name__ == '__main__':
     app.run()
