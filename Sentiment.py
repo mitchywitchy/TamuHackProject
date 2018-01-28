@@ -39,4 +39,4 @@ documents = { 'documents': [
 print 'Please wait a moment for the results to appear.\n'
 
 result = GetSentiment (documents)
-rint (json.loads(result))
+print(json.loads(result))
