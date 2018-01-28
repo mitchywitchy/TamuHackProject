@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import requests
 from urllib import parse
 from requests_oauthlib import OAuth1

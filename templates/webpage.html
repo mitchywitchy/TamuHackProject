@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trending @HELP</title>
+</head>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+body{
+    text-align: center;
+}
+h1{
+    font-family: 'Anton', sans-serif;
+    font-weight: normal;
+    color: #212729;
+    font-size: 2.5em;
+}
+
+</style>
+
+<body>
+text-align: center;
+
+<div class="block1">
+<h1>Trending @HELP</h1>
+  </p>
+</div>
+
+<ul>
+{% for tweet in tweets %}
+    <li>{{ tweet.text }}</li>
+{% endfor %}
+</ul>
+}
+
+</body>
+</html>
